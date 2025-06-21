@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+
+.figtree-regular {
+    font-family: "Figtree", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+  }
+
+.epilogue-medium {
+  font-family: "Epilogue", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+#timer-widget {
+  width: 545px;
+  height: 300px;
+  background-color: #303d4f;
+  color: #d4ecd4;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+img {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+#timer-widget h1 {
+  font-size: 170px;
+  font-family: "Figtree", sans-serif;
+  padding: 0 20px;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button {
+  width: 150px;
+  height: 50px;
+  background-color: #b4d6f4;
+  color: #303d4f;
+  border-radius: 25px;
+  font-family: "Epilogue", sans-serif;
+  font-size: 25px;
+  border: none;
+  margin: 20px;
+}
+
+#time-labels {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.inactive-label {
+  background-color: #303d4f;
+  color: #b4d6f4;
+  border: 2px solid #b4d6f4;
+}

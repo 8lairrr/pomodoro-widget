@@ -1,18 +1,21 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 import './App.css'
 
 function App() {
 
   return (
-    <div id="widget">
-      <div class="heading">
+    <div id="app-widget">
+      <div className="heading">
         <h1>GOOD <span id="greeting">MORNING</span>!</h1>
         <p>choose a pomodoro setting:</p>
       </div>
 
-      <div class="pomodoro-settings">
+      <div className="pomodoro-settings">
+        {/* 25/5 split */}
         <button id="options">SHORT STUDY</button>
+        {/* 52/17 split */}
         <button id="options">FINISH WORK</button>
+        {/* 45/15 split */}
         <button id="options">DEEP FOCUS</button>
       </div>
       

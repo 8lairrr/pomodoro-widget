@@ -24,16 +24,24 @@
   font-style: normal;
 }
 
-#widget {
-  width: 545;
-  height: 300;
+#app-widget {
+  width: 545px;
+  height: 300px;
   background-color: #303d4f;
   color: #d4ecd4;
   border-radius: 50px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 20px;
 }
 
-h1 {
+#app-widget h1 {
   font-size: 40px;
+  max-width: 545px;
   font-family: "Bungee", sans-serif;
   padding: 20px 20px 0 20px;
   margin-bottom: 0;
@@ -62,7 +70,8 @@ p {
   height: 105px;
   text-wrap: wrap;
   font-family: "Epilogue", sans-serif;
-  font-size: 25px;
+  font-size: 24px;
   text-align: center;
   padding: 0;
+  border: none;
 }
