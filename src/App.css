@@ -1,42 +1,68 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Commissioner:wght@100..900&family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap');
+
+.bungee-regular {
+  font-family: "Bungee", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.commissioner-regular {
+  font-family: "Commissioner", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0,
+    "FLAR" 0,
+    "VOLM" 0;
+}
+
+.epilogue-medium {
+  font-family: "Epilogue", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+#widget {
+  width: 545;
+  height: 300;
+  background-color: #303d4f;
+  color: #d4ecd4;
+  border-radius: 50px;
+}
+
+h1 {
+  font-size: 40px;
+  font-family: "Bungee", sans-serif;
+  padding: 20px 20px 0 20px;
+  margin-bottom: 0;
+}
+
+p {
+  font-family: "Commissioner", sans-serif;
+}
+
+.heading {
   text-align: center;
+  padding-bottom: 0;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.pomodoro-settings {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px 20px 20px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+#options {
+  background-color: #b4d6f4;
+  color: #2b503e;
+  border-radius: 100%;
+  width: 105px;
+  height: 105px;
+  text-wrap: wrap;
+  font-family: "Epilogue", sans-serif;
+  font-size: 25px;
+  text-align: center;
+  padding: 0;
 }
