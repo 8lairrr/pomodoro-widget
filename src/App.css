@@ -26,7 +26,7 @@
 
 #app-widget {
   width: 545px;
-  height: 300px;
+  height: 350px;
   background-color: #303d4f;
   color: #d4ecd4;
   border-radius: 50px;
@@ -43,7 +43,7 @@
   font-size: 40px;
   max-width: 545px;
   font-family: "Bungee", sans-serif;
-  padding: 20px 20px 0 20px;
+  padding: 0px 20px;
   margin-bottom: 0;
 }
 
@@ -59,19 +59,24 @@ p {
 .pomodoro-settings {
   display: flex;
   justify-content: space-between;
-  padding: 0 20px 20px 20px;
+  padding: 0 20px;
 }
 
-#options {
+.options {
   background-color: #b4d6f4;
   color: #2b503e;
   border-radius: 100%;
-  width: 105px;
-  height: 105px;
+  width: 100px;
+  height: 100px;
   text-wrap: wrap;
   font-family: "Epilogue", sans-serif;
   font-size: 24px;
   text-align: center;
   padding: 0;
   border: none;
+}
+
+img {
+  width: 30px;
+  padding-bottom: 20px;
 }

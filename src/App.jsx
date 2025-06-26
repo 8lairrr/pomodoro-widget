@@ -2,6 +2,7 @@
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import Timer from './Timer';
 import './App.css'
+import exitIcon from './assets/exit.svg';
 
 function App() {
   const navigate = useNavigate();
@@ -12,6 +13,7 @@ function App() {
 
   return (
     <div id="app-widget">
+
       <div className="heading">
         <h1>GOOD <span id="greeting">MORNING</span>!</h1>
         <p>choose a pomodoro setting:</p>
@@ -19,12 +21,14 @@ function App() {
 
       <div className="pomodoro-settings">
         {/* 25/5 split */}
-        <button id="options" onClick={() => handleClick(25, 5)}>SHORT STUDY</button>
+        <button className="options" onClick={() => handleClick(25, 5)}>SHORT STUDY</button>
         {/* 52/17 split */}
-        <button id="options" onClick={() => handleClick(52, 17)}>FINISH WORK</button>
+        <button className="options" onClick={() => handleClick(52, 17)}>FINISH WORK</button>
         {/* 45/15 split */}
-        <button id="options" onClick={() => handleClick(45, 15)}>DEEP FOCUS</button>
+        <button className="options" onClick={() => handleClick(45, 15)}>DEEP FOCUS</button>
       </div>
+
+      <img id="exit" src={exitIcon} />
       
     </div>
   )

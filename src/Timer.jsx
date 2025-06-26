@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import './Timer.css'
+import backIcon from './assets/back.svg';
 
 function Timer() {
     const { study, breakTime } = useParams();
@@ -15,6 +16,8 @@ function Timer() {
                 <button id="working">WORKING</button>
                 <button id="break" className="inactive-label">BREAK</button>
             </div>
+
+            <img id="back" src={backIcon} />
         
         </div>
     )

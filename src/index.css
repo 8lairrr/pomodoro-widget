@@ -11,12 +11,12 @@
 
 body {
   min-width: 545px;
-  min-height: 300px;
+  min-height: 350px;
   max-width: 600px;
   margin: auto;
 }
 
 App, Timer {
   width: 545px;
-  height: 300px;
+  height: 350px;
 }
