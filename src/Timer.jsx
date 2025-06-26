@@ -1,9 +1,10 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import './Timer.css'
 import backIcon from './assets/back.svg';
 
 function Timer() {
     const { study, breakTime } = useParams();
+    const navigate = useNavigate();
     const studyTime = parseInt(study);
     const breakDuration = parseInt(breakTime);
 
@@ -17,7 +18,9 @@ function Timer() {
                 <button id="break" className="inactive-label">BREAK</button>
             </div>
 
-            <img id="back" src={backIcon} />
+            <button onClick={() => navigate('/')}>
+                <img id="back" src={backIcon} />
+            </button>
         
         </div>
     )
