@@ -4,18 +4,55 @@ import './Timer.css';
 import backIcon from './assets/back.svg';
 
 function Timer() {
-    const { study, breakTime } = useParams();
+    const { study, breakDuration } = useParams();
     const navigate = useNavigate();
 
-    // tracking current mode --> true = study, false = break
-    const [isStudyTime, setIsStudyTime] = useState(true);
-
-    // string to numbers
+    // duration in minutes
     const studyTime = parseInt(study);
-    const breakDuration = parseInt(breakTime);
+    const breakTime = parseInt(breakDuration);
 
+    // durations in seconds
+    const studySeconds = studyTime * 60;
+    const breakSeconds = breakTime * 60;
+
+    const getInitialState = () => {
+        const saved = JSON.parse(localStorage.getItem('pomodoroState'));
+        if (saved) {
+          const now = Date.now();
+          const elapsed = Math.floor((now - saved.startTime) / 1000); // seconds elapsed
+          const remaining = saved.duration - elapsed;
+          if (remaining > 0) {
+            return {
+              isStudyTime: saved.isStudyTime,
+              timeLeft: remaining,
+            };
+          }
+        }
+        // default state
+        return {
+            isStudyTime: true,
+            timeLeft: studySeconds,
+        };
+    };
+
+    const initialState = getInitialState();
+
+    // tracking current mode --> true = study, false = break
+    const [isStudyTime, setIsStudyTime] = useState(initialState.isStudyTime);
     // store time left
-    const [timeLeft, setTimeLeft] = useState(studyTime * 60);
+    const [timeLeft, setTimeLeft] = useState(initialState.timeLeft);
+
+    // save to localStorage to stop timer resetting when minimized/reloaded
+    const saveStateToLocalStorage = (isStudy, duration) => {
+        localStorage.setItem(
+          'pomodoroState',
+          JSON.stringify({
+            isStudyTime: isStudy,
+            duration: duration,
+            startTime: Date.now(),
+          })
+        );
+    };
 
     // convert timeLeft to MM:SS format
     const formatTime = (totalSeconds) => {
@@ -28,11 +65,12 @@ function Timer() {
     useEffect(() => {
         // only run the timer if time is remaining
         if (timeLeft <= 0) {
-            const nextMode = !isStudyTime;
-            setIsStudyTime(nextMode);
-
+            const nextIsStudy = !isStudyTime;
+            const nextDuration = nextIsStudy ? STUDY_SECONDS : BREAK_SECONDS;
+            setIsStudyTime(nextIsStudy);
             // reset timer to next mode duration
-            setTimeLeft(nextMode ? studyTime * 60 : breakDuration * 60);
+            setTimeLeft(nextDuration);
+            saveStateToLocalStorage(nextIsStudy, nextDuration);
             return;
         }
     
@@ -44,7 +82,13 @@ function Timer() {
     
         // clear the 1 second interval when time updates
         return () => clearInterval(timerId);
-    }, [timeLeft, isStudyTime, studyTime, breakDuration]); // run again if dependencies change
+    }, [timeLeft, isStudyTime, studySeconds, breakSeconds]); // run again if dependencies change
+
+    // clear localStorage on exit
+    const handleExit = () => {
+        localStorage.removeItem('pomodoroState');
+        navigate('/');
+    };
 
     return (
         <div id="timer-widget">
@@ -68,7 +112,7 @@ function Timer() {
                 </button>
             </div>
 
-            <button onClick={() => navigate('/')}>
+            <button onClick={handleExit}>
                 <img id="back" src={backIcon} />
             </button>
         
