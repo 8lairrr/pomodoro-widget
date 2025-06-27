@@ -45,12 +45,9 @@ img {
 #working, #break {
   width: 150px;
   height: 50px;
-  background-color: #b4d6f4;
-  color: #303d4f;
   border-radius: 25px;
   font-family: "Epilogue", sans-serif;
   font-size: 25px;
-  border: none;
   margin: 20px;
 }
 
@@ -64,6 +61,11 @@ img {
 button {
   all: unset;
   cursor: pointer;
+}
+
+.active-label {
+  background-color: #b4d6f4;
+  color: #303d4f;
 }
 
 .inactive-label {

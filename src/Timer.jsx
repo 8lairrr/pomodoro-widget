@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import './Timer.css'
+import './Timer.css';
 import backIcon from './assets/back.svg';
 
 function Timer() {
     const { study, breakTime } = useParams();
     const navigate = useNavigate();
+
+    // tracking current mode --> true = study, false = break
+    const [isStudyTime, setIsStudyTime] = useState(true);
 
     // string to numbers
     const studyTime = parseInt(study);
@@ -24,7 +27,14 @@ function Timer() {
 
     useEffect(() => {
         // only run the timer if time is remaining
-        if (timeLeft <= 0) return;
+        if (timeLeft <= 0) {
+            const nextMode = !isStudyTime;
+            setIsStudyTime(nextMode);
+
+            // reset timer to next mode duration
+            setTimeLeft(nextMode ? studyTime * 60 : breakDuration * 60);
+            return;
+        }
     
         // setting up a 1 second interval
         const timerId = setInterval(() => {
@@ -34,7 +44,7 @@ function Timer() {
     
         // clear the 1 second interval when time updates
         return () => clearInterval(timerId);
-    }, [timeLeft]); // run again if timeLeft changes
+    }, [timeLeft, isStudyTime, studyTime, breakDuration]); // run again if dependencies change
 
     return (
         <div id="timer-widget">
@@ -42,8 +52,20 @@ function Timer() {
             <h1 className="time-display"><span id="timer">{formatTime(timeLeft)}</span></h1>
 
             <div id="time-labels">
-                <button id="working">WORKING</button>
-                <button id="break" className="inactive-label">BREAK</button>
+                <button 
+                    id="working"
+                    className={isStudyTime ? 'active-label' : 'inactive-label'}>
+
+                    WORKING
+
+                </button>
+                <button 
+                    id="break"
+                    className={!isStudyTime ? 'active-label' : 'inactive-label'}>
+                    
+                    BREAK
+                    
+                </button>
             </div>
 
             <button onClick={() => navigate('/')}>
