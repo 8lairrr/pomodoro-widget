@@ -1,12 +1,58 @@
-# React + Vite
+# Pomodoro Timer ⏱️
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple, responsive Pomodoro timer built with **React** and **Vite** that helps you manage your focus and break sessions using the Pomodoro Technique.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+✅ Choose from 3 Pomodoro modes:
+- **Short Study** (25/5 minutes)  
+- **Finish Work** (52/17 minutes)  
+- **Deep Focus** (45/15 minutes)
 
-## Expanding the ESLint configuration
+✅ Fully responsive UI styled with custom CSS  
+✅ Countdown that persists through refreshes or tab switches  
+✅ Automatic switching between study and break cycles  
+✅ Resets timer when you exit the timer view
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
+
+- ⚛️ [React](https://react.dev/)
+- ⚡ [Vite](https://vitejs.dev/)
+- 📦 [React Router](https://reactrouter.com/) for navigation
+- 🧠 `localStorage` for persistent timer logic
+
+## Getting Started
+
+To run this project locally:
+
+1. **Clone the repo:**
+
+   ```bash
+   git clone https://github.com/8lairrr/pomodoro-widget.git
+   cd pomodoro-widget
+
+2. **Install dependencies:**
+
+    ```bash
+    npm install
+
+3. **Start the dev server:**
+
+    ```bash
+    npm run dev
+
+## Project Structure
+    src/
+    ├── assets/             # icons (back button)
+    ├── App.jsx             # main homepage UI
+    ├── App.css             # styles for homepage
+    ├── Timer.jsx           # timer component with logic
+    ├── Timer.css           # styles for timer screen
+
+
+## Deployment 
+    Currently looking into deploying the completed project! Check back soon!
+
+## Credits
+    Designed and developed by Delia Holman.
+    Uses custom logic to persist time across reloads without external libraries.
