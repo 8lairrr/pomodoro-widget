@@ -43,7 +43,7 @@ To run this project locally:
 
 ## Project Structure
     src/
-    ├── assets/             # icons (back button)
+    ├── assets/             # icons (back and exit button)
     ├── App.jsx             # main homepage UI
     ├── App.css             # styles for homepage
     ├── Timer.jsx           # timer component with logic
